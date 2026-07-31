@@ -1,0 +1,21 @@
+@use '../variables' as vars;
+
+.layout-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.conteudo {
+  padding: vars.$espacamento-grande;
+}
+
+.item-ativo {
+  background-color: rgba(0, 0, 0, 0.08);
+}

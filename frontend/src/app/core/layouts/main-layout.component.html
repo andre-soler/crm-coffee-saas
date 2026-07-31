@@ -1,0 +1,29 @@
+<app-loading-bar></app-loading-bar>
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      @for (item of itensMenu; track item.rota) {
+        <a mat-list-item
+           [routerLink]="item.rota"
+           routerLinkActive="item-ativo">
+          <mat-icon matListItemIcon>{{ item.icone }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>{{ usuarioAtual?.nome }}</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="fazerLogout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="conteudo">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
