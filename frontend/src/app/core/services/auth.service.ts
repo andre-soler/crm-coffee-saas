@@ -18,7 +18,7 @@ export class AuthService {
     return this.http.post<Usuario>(
       `${API_ENDPOINTS.auth}/login`,
       { email, senha },
-      { withCredentials: true } // essencial: manda e recebe cookies
+      { withCredentials: true }
     ).pipe(
       tap(usuario => this.usuarioLogadoSubject.next(usuario))
     );
@@ -42,7 +42,6 @@ export class AuthService {
     return this.usuarioLogadoSubject.value;
   }
 
-  // Chamado na inicialização do app, pra verificar se já existe uma sessão válida
   verificarSessao(): Observable<Usuario> {
     return this.http.get<Usuario>(
       `${API_ENDPOINTS.auth}/me`,

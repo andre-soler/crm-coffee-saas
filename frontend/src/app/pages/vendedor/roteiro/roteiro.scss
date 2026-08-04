@@ -1,0 +1,51 @@
+.roteiro-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cabecalho {
+  margin-bottom: 24px;
+
+  h1 {
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.lista-clientes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-card {
+  .item-info {
+    margin-bottom: 12px;
+
+    h3 {
+      margin: 0 0 4px 0;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+      color: var(--mat-sys-on-surface-variant);
+    }
+  }
+
+  .item-acoes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+.chip-visitado {
+  background-color: var(--mat-sys-tertiary-container);
+}
+
+.chip-nao-encontrado {
+  background-color: var(--mat-sys-error-container);
+}

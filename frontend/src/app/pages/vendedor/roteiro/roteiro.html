@@ -1,0 +1,49 @@
+<div class="roteiro-container">
+  <div class="cabecalho">
+    <h1>Meu Roteiro do Dia</h1>
+    <p>{{ totalVisitados }} de {{ itens.length }} clientes visitados</p>
+  </div>
+
+  <div class="lista-clientes">
+    @for (item of itens; track item.id) {
+      <mat-card class="item-card">
+        <mat-card-content>
+          <div class="item-info">
+            <h3>{{ item.clienteNome }}</h3>
+            <p>{{ item.clienteEndereco }}</p>
+
+            <mat-chip-set>
+              @if (item.status === StatusVisita.Pendente) {
+                <mat-chip>Pendente</mat-chip>
+              }
+              @if (item.status === StatusVisita.Visitado) {
+                <mat-chip class="chip-visitado">Visitado</mat-chip>
+              }
+              @if (item.status === StatusVisita.NaoEncontrado) {
+                <mat-chip class="chip-nao-encontrado">Não encontrado</mat-chip>
+              }
+            </mat-chip-set>
+          </div>
+
+          <div class="item-acoes">
+            @if (item.status === StatusVisita.Pendente) {
+              <button mat-stroked-button color="primary" (click)="marcarVisitado(item)">
+                <mat-icon>check_circle</mat-icon>
+                Visitado
+              </button>
+              <button mat-stroked-button (click)="marcarNaoEncontrado(item)">
+                <mat-icon>cancel</mat-icon>
+                Não encontrado
+              </button>
+            }
+
+            <a mat-flat-button color="primary" routerLink="/vendas/nova">
+              <mat-icon>point_of_sale</mat-icon>
+              Registrar Venda
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>
